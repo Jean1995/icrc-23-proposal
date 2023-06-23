@@ -1,0 +1,79 @@
+% Please make sure you insert your
+% data according to the instructions in PoSauthmanual.pdf
+\documentclass[a4paper,11pt]{article}
+\usepackage{pos}
+
+\title{Physics updates of the simulation tool PROPOSAL}
+\ShortTitle{Physics updates of the high-energy lepton and photon simulation tool PROPOSAL}
+
+\author*[a]{Jean-Marco Alameddine}
+\author[a]{Pascal Gutjahr}
+\author[a]{Wolfgang Rhode}
+\author[b]{Alexander Sandrock}
+\author[a]{Jan Soedingrekso}
+
+\affiliation[a]{Technische Universität Dortmund, Fakultät Physik,\\
+  Otto-Hahn-Straße 4a, 44227 Dortmund, Germany}
+
+\affiliation[b]{Bergische Universität Wuppertal,
+  Fakultät für Mathematik und Naturwissenschaften,\\
+  Gaußstraße 20, 42119 Wuppertal, Germany}
+
+
+% Uncomment \onbehalf{...} for collaboration if you want.
+%\onbehalf{for the XXXX collaboration} 
+
+% In this case, you also have to uncomment the lines after "%Full authors list" below and include the full authors list,
+
+\emailAdd{jean-marco.alameddine@tu-dortmund.de}
+\emailAdd{pascal.gutjahr@tu-dortmund.de}
+\emailAdd{wolfgang.rhode@tu-dortmund.de}
+\emailAdd{asandrock@icecube.wisc.edu}
+\emailAdd{jan.soedingrekso𝑎@tu-dortmund.de}
+
+\abstract{
+Monte Carlo simulations are an important tool in modern physics experiments. With improving detector sensitivities, higher accuracies are also required from simulations, for example in reconstruction tasks. This includes both correctness from a physical as well as an algorithmic point of view. PROPOSAL is a Monte Carlo simulation framework that provides three-dimensional simulations of high-energy photons, electrons, muons, and taus. It is written in C++, but can also be used within Python via a wrapper. The structure of the software allows for simple customization of the propagation environment, physics descriptions, or precision settings for a variety of use cases. Examples are the application in neutrino observatories, underground experiments, or air shower simulations. This contribution focuses on the recent physics updates of the framework, describing the methodology and implication of these improvements. In particular, this involves effects at the higher and lower end of the energy scale covered by PROPOSAL. For high-energy photons, photon-nucleon interactions, muon pairproduction, and the Landau-Pomeranchuk-Migdal effect in electron-positron pairproduction are now included. As lower-energy effects, the deflection of muons in stochastic interactions as well as an approximate description of the photoeffect for photons have been implemented.}
+
+\ConferenceLogo{PoS_ICRC2023_logo.pdf}
+
+\FullConference{%
+38th International Cosmic Ray Conference (ICRC2023)\\
+  26 July - 3 August, 2023\\
+  Nagoya, Japan}
+
+
+
+%% \tableofcontents
+
+\begin{document}
+\maketitle
+
+
+\section{...}
+
+\begin{thebibliography}{99}
+\bibitem{...}
+....
+
+\end{thebibliography}
+
+%% Full authors list (ONLY FOR COLLABORATIONS)
+%\clearpage
+%\section*{Full Authors List: \Coll\ Collaboration}
+%
+%\noindent \textbf{Note comment afterwards:} Collaborations have the possibility to provide an authors list in xml format which will be used while generating the DOI entries making the full authors list searchable in databases like Inspire HEP. \\
+%
+%\scriptsize
+%\noindent
+%first.author$^1$, 
+%second.author$^2$, 
+%third.author$^3$ % .... more names
+%and 
+%last.author$^{n}$ \\
+%
+%\noindent
+%$^1$first.affiliation.
+%$^2$second.affiliation. % .... more affiliation
+%$^{m}$last.affiliation.
+
+\end{document}
