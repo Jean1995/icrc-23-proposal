@@ -10,19 +10,40 @@
 
 \subsection{Photoelectric absorption}
 
+Photoelectric absorption describes the ejection of an atomic electron due to its interaction with an in-going photon.
+In this process, the photon energy is used to free the electron from its atomic binding, while the remaining photon energy serves as the kinetic energy of the now free electron.
+For photons in air, photoelectric absorption becomes the dominant interaction process for energies below $\approx \SI{30}{\kilo\electronvolt}$.
+In the context of electromagnetic cascades, photoelectric absorption as a process starts to become important for energies where its cross section represents a significant correction to the total mean free path length.
+
+The detailed description of photoelectric absorption is non-trivial and dependent on the properties of the atomic structure of the interaction target.
+Since other codes to describe these processes already exist, PROPOSAL only provides an approximate description based on the cross section given in \cite{heitler, sauter}.
+The total cross section is defined as
+%
 \begin{align}
 	\label{eqn:sauter}
-	\sigma &= 4 \pi r_e^2 Z^5 \alpha^4 \left( \frac{m_e}{E} \right)^5 \left( \gamma^2 -1 \right)^{\sfrac{3}{2}} F_\text{nonrel} \times \left[ \frac{4}{3} + \frac{\gamma (\gamma - 2)}{\gamma + 1} \left( 1 - \frac{\ln{\left( \gamma + \sqrt{\gamma^2 - 1} \right)}}{\gamma \sqrt{\gamma^2 - 1}}  \right) \right],
+	\sigma &= 4 \pi r_e^2 Z^5 \alpha^4 F_1 F_2 \left( \frac{m_e}{E} \right)^5 \left( \gamma^2 -1 \right)^{\sfrac{3}{2}} \left[ \frac{4}{3} + \frac{\gamma (\gamma - 2)}{\gamma + 1} \left( 1 - \frac{\ln{\left( \gamma + \sqrt{\gamma^2 - 1} \right)}}{\gamma \sqrt{\gamma^2 - 1}}  \right) \right],
 \end{align}
-
+%
+with the photon energy $E$ and the definitions
 \begin{align}
-	\gamma &= 1 + \frac{E - I}{m_e}, & I &= \frac{Z^2 \alpha^2 m_e}{2},
+	\gamma &= 1 + \frac{E - I}{m_e}, & I &= \frac{Z^2 \alpha^2 m_e}{2}.
 \end{align}
-
+%
+The term
 \begin{align}
-	F_\text{nonrel} &= \left[ 1 + \left( \frac{\alpha Z}{\beta} \right)^2 \right] \frac{\pi \alpha Z / \beta }{\sinh(\pi \alpha Z / \beta )} \exp\left[ \frac{\alpha Z}{\beta} \left( \pi - 4 \arctan\left( \frac{\beta}{\alpha Z} \right) \right) \right].
+	F_1 &= \left[ 1 + \left( \frac{\alpha Z}{\beta} \right)^2 \right] \frac{\pi \alpha Z / \beta }{\sinh(\pi \alpha Z / \beta )} \exp\left[ \frac{\alpha Z}{\beta} \left( \pi - 4 \arctan\left( \frac{\beta}{\alpha Z} \right) \right) \right]
 \end{align}
+%
+is used as a correction factor for the non-relativistic energy regime \cite{sauter}, while the term
+%
+\begin{align}
+	F_2 &= 1 + 0.01481 \ln^2{Z} - 0.000788 \ln^3{Z}
+\end{align}
+%
+is an empirical correction describing the ratio between the K-shell and total photoelectric absorption cross section \cite{hubbell1969}.
 
+The photoelectric cross section and a validation of the total photon cross section at low energies is shown in Figure \ref{fig:photoeffect_nist}, where the total photon cross section in air is compared to the calculations from the NIST Standard Reference Database.
+The agreement is at worst \SI{10}{\percent}.
 
 \begin{figure}
 	\centering
@@ -30,7 +51,6 @@
     \caption{Photon cross sections in air for small energies, compared to the total cross section according to the NIST Standard Reference Database.}
     \label{fig:photoeffect_nist}
 \end{figure}
-\todo{cite nist}
 
 \subsection{Photonuclear interactions}
 
@@ -51,8 +71,8 @@ with the squared center of mass energy $s = m_n^2 + 2 m_n \nu$ and the pion prod
 \begin{figure}
 	\centering
     \includegraphics{plots/photoproduction_cross.pdf}
-    \caption{Total cross section of photons in air inside PROPOSAL.}
-    \label{fig:total_cross_photon}
+    \caption{Photonuclear interaction cross sections.}
+    \label{fig:photoproduction_cross}
 \end{figure}
 
 
