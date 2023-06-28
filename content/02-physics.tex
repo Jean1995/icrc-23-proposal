@@ -105,18 +105,27 @@ For $Z > 1$, the effect of the inelastic nuclear form factor is taken into accou
 	\Delta_\text{n} &\rightarrow \left( 1 - \frac{1}{Z} \right) \Delta_\text{n}.
 \end{align}
 
-\subsection{Landau-Pomeranchuk-Migdal effect}
+\subsection{Landau-Pomeranchuk-Migdal effect in electron-positron pair production}
 
+The Landau-Pomeranchuk-Migdal is a suppression of bremsstrahlung and pair production processes occuring when the formation length reaches interatomic distances, which comes in effect for high energies and dense media.
+The suppression is effective for small energy losses in case of bremsstrahlung, and for symmetric pair production events in case of electron-positron pair production.
+
+Based on the parametrization of the LPM effect in \cite{RevModPhys.71.1501}, the suppression of the pair production cross section is given by
+%
 \begin{align}
 	\label{eqn:lpm_photopair}
 	\frac{\mathrm{d}\sigma_\text{LPM}}{\mathrm{d}x} &= \frac{\mathrm{d}\sigma}{\mathrm{d}x} \cdot \frac{\xi(s) / 3 \left(G(s) + 2 \left( x^2 + (1 - x)^2 \right) \phi(s) \right)}{1 - 4 / 3 x (1 - x)},
 \end{align}
-
+%
+with $x = E_{e^{-}} / E$, where $E$ is the photon energy.
+The functions $\xi(s)$, $G(s)$, $\phi(s)$, are given by \cite{PhysRevD.25.1291, PhysRev.103.1811}
+%
 \begin{align}
-	\phi(s) &=
+	\xi(s) &\approx \xi(s^\prime) =
 	\begin{cases}
-		1 - \exp{\left\{ -6s \left(1 + (3 - \pi) s\right) + \frac{s^3}{ 0.623 + 0.796s + 0.658 s^2} \right\}} & \text{if $s < \num{1.54954}$}, \\
-		1 - 0.012 s^{-4} & \text{if $s \geq \num{1.54954}$},
+		2 & \text{if $s^\prime < s_1$}, \\
+		1 + h - \frac{0.08 (1 - h) (1 - (1-h)^2)}{\ln{(s_1)}} & \text{if $s_1 \leq s^\prime < 1$}, \\
+		1 & \text{if $s^\prime \geq 1$},
 	\end{cases}
 \end{align}
 %
@@ -134,19 +143,26 @@ For $Z > 1$, the effect of the inelastic nuclear form factor is taken into accou
 \end{align}
 %
 \begin{align}
-	\xi(s) &\approx \xi(s^\prime) =
+	\phi(s) &=
 	\begin{cases}
-		2 & \text{if $s^\prime < s_1$}, \\
-		1 + h - \frac{0.08 (1 - h) (1 - (1-h)^2)}{\ln{(s_1)}} & \text{if $s_1 \leq s^\prime < 1$}, \\
-		1 & \text{if $s^\prime \geq 1$},
+		1 - \exp{\left\{ -6s \left(1 + (3 - \pi) s\right) + \frac{s^3}{ 0.623 + 0.796s + 0.658 s^2} \right\}} & \text{if $s < \num{1.54954}$}, \\
+		1 - 0.012 s^{-4} & \text{if $s \geq \num{1.54954}$},
 	\end{cases}
 \end{align}
-
-
+%
+with the variable definitions
+%
 \begin{align}
 	s &= \frac{s^\prime}{\sqrt{\xi(s^\prime)}}, & s^\prime &= \frac{1}{8} \sqrt{\frac{E_\text{LPM}}{E x ( 1 - x)}}, & s_1 &= \frac{\sqrt{2} Z^{\sfrac{2}{3}}}{B^2}, \\ E_\text{LPM} &= \frac{2 \alpha (m_e c^2)^2 X_0}{\pi \hbar c}, & h &= \frac{\ln{(s^\prime)}}{\ln{(s_1)}}, & D_n &= 1.54 A^{0.27},
 \end{align}
+%
+where $X_0$ is the radiation length and $B$ the radiation logarithm constant.
 
+Figure \ref{fig:lpm_photopair_diff} shows the effect of the LPM on the differential pair production cross section at different energies.
+As expected, for $x = 0.5$, the suppression becomes maximal, while for $x=0$ and $x=1$, the suppression is zero.
+Since the LPM effect depends on the material density, its suppression also depends on the height in the Earth's atmosphere.
+In Figure \ref{fig:lpm_photopair_cross}, the suppression of the pair production cross section at different atmospheric heights is shown.
+%
 \begin{figure}
 \centering
 \begin{minipage}[t]{.48\textwidth}
