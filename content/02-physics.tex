@@ -54,7 +54,15 @@ The agreement is at worst \SI{10}{\percent}.
 
 \subsection{Photonuclear interactions}
 
+High-energy photons can perform hadronic interactions, in which the photon is absorbed by an atomic nucleus.
+Although this process provides only a small contribution to the total mean free path length of photons for most energies, they are a source of hadronic particles, and consequently also muons from electromagnetic cascades.
 
+In the context of nuclear muon interactions, parametrizations to describe photonuclear interactions of photons have already been implemented in PROPSOAL, but were only available internally.
+These parametrization, which have been described in detail in \cite{KOEHNE20132070}, are now available to describe photonuclear interaction of real photons.
+
+In addition, the parametrization from \cite{Heck2012CORSIKA}, which is also used in the simulation program CORSIKA~7, has also been implemented.
+The continuous contribution of this cross section is given as 
+%
 \begin{align}
 	\label{eqn:photonuclear_C7}
 	\sigma_{\gamma,N} &=
@@ -63,18 +71,21 @@ The agreement is at worst \SI{10}{\percent}.
 		\left( 59.3 s^{0.093} + 120.2 s^{-0.358} \right) \si{\micro\barn}, & \text{for } \sqrt{s} > \SI{19.39}{\giga\electronvolt}, \\
 	\end{cases}
 \end{align} 
-
-with the squared center of mass energy $s = m_n^2 + 2 m_n \nu$ and the pion production threshold $\sqrt{s_0} = \SI{1.0761}{\giga\electronvolt}$.
-
-\todo{Shadowing???}
-
+%
+with $s = m_n^2 + 2 m_n E / \si{\giga\electronvolt}$ and the pion production threshold $\sqrt{s_0} = \SI{1.0761}{\giga\electronvolt}$.
+In addition, the resonances for $\Delta(1232)$, $N(1520)$, and $N(1680)$ are superimposed on the continuous cross section, where the definition and parameters from \cite{Muecke_2000} are used.
+Figure \ref{fig:photoproduction_cross} shows the different parametrizations for the photonuclear interactions implemented in PROPOSAL.
+Note that both differences in the resonance region as well as in the extrapolation to high energies are visible.
+%
 \begin{figure}
 	\centering
     \includegraphics{plots/photoproduction_cross.pdf}
-    \caption{Photonuclear interaction cross sections.}
+    \caption{Photonuclear interaction cross sections implemented in PROPOSAL. For the Heck parametrization, the solid line indicates the shadowing parametrization according to \cite{KOEHNE20132070}, while for the dashed line, the shadowing parametrization $\sigma_{\gamma,A} = A^{0.91} \sigma_{\gamma,N}$ from \cite{Heck2012CORSIKA} has been used}.
     \label{fig:photoproduction_cross}
 \end{figure}
-
+%
+Figure \ref{fig:total_cross_photon} shows the cross section of photonuclear interactions compared to other processes.
+For energies where the LPM suppression of pair production becomes effective, the photonuclear process starts to become a significant contribution to the total photon cross section.
 
 \subsection{Muon pair production}
 
