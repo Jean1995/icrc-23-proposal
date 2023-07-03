@@ -41,7 +41,7 @@ for E, color in zip(E_list, colors):
 	logE_pev = np.log10(E/1e9)
 	plt.plot(x_list, np.vectorize(param_lpm.differential_crosssection)(particle, target, E, x_list), color=color, label=f'E=\\SI{{e{logE_pev:.0f}}}{{\\peta\\electronvolt}}')
 
-plt.plot(x_list, np.vectorize(param_no_lpm.differential_crosssection)(particle, target, E, x_list), color='tab:red', linestyle='dashed', label='No LPM')
+plt.plot(x_list, np.vectorize(param_no_lpm.differential_crosssection)(particle, target, E, x_list), color=colors[-1], linestyle='dashed', label='No LPM')
 
 
 plt.xticks(fontsize=8)

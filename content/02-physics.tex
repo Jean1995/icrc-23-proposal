@@ -15,7 +15,7 @@ In this process, the photon energy is used to free the electron from its atomic 
 For photons in air, photoelectric absorption becomes the dominant interaction process for energies below $\approx \SI{30}{\kilo\electronvolt}$.
 In the context of electromagnetic cascades, photoelectric absorption as a process starts to become important for energies where its cross section represents a significant correction to the total mean free path length.
 
-The detailed description of photoelectric absorption is non-trivial and dependent on the properties of the atomic structure of the interaction target.
+The detailed description of photoelectric absorption is non-trivial and dependent on the properties interaction target and its atomic structure.
 Since other codes to describe these processes already exist, PROPOSAL only provides an approximate description based on the cross section given in \cite{heitler, sauter}.
 The total cross section is defined as
 %
@@ -42,13 +42,12 @@ is used as a correction factor for the non-relativistic energy regime \cite{saut
 %
 is an empirical correction describing the ratio between the K-shell and total photoelectric absorption cross section \cite{hubbell1969}.
 
-The photoelectric cross section and a validation of the total photon cross section at low energies is shown in Figure \ref{fig:photoeffect_nist}, where the total photon cross section in air is compared to the calculations from the NIST Standard Reference Database.
-The agreement is at worst \SI{10}{\percent}.
+The photoelectric cross section and a validation of the total photon cross section at low energies is shown in Figure \ref{fig:photoeffect_nist}, where the total photon cross section in air is compared to the calculations from the NIST Standard Reference Database \cite{nist}.
 
 \begin{figure}
 	\centering
     \includegraphics{plots/photoeffect_nist.pdf}
-    \caption{Photon cross sections in air for small energies, compared to the total cross section according to the NIST Standard Reference Database.}
+    \caption{Photon cross sections in air for small energies, compared to the total cross section according to the NIST Standard Reference Database \cite{nist}.}
     \label{fig:photoeffect_nist}
 \end{figure}
 
@@ -57,7 +56,7 @@ The agreement is at worst \SI{10}{\percent}.
 High-energy photons can perform hadronic interactions, in which the photon is absorbed by an atomic nucleus.
 Although this process provides only a small contribution to the total mean free path length of photons for most energies, they are a source of hadronic particles, and consequently also muons from electromagnetic cascades.
 
-In the context of nuclear muon interactions, parametrizations to describe photonuclear interactions of photons have already been implemented in PROPSOAL, but were only available internally.
+In the context of nuclear muon interactions, parametrizations to describe photonuclear interactions of photons have already been implemented in PROPOSAL, but were only available internally.
 These parametrization, which have been described in detail in \cite{KOEHNE20132070}, are now available to describe photonuclear interaction of real photons.
 
 In addition, the parametrization from \cite{Heck2012CORSIKA}, which is also used in the simulation program CORSIKA~7, has also been implemented.
@@ -80,7 +79,7 @@ Note that both differences in the resonance region as well as in the extrapolati
 \begin{figure}
 	\centering
     \includegraphics{plots/photoproduction_cross.pdf}
-    \caption{Photonuclear interaction cross sections implemented in PROPOSAL. For the Heck parametrization, the solid line indicates the shadowing parametrization according to \cite{KOEHNE20132070}, while for the dashed line, the shadowing parametrization $\sigma_{\gamma,A} = A^{0.91} \sigma_{\gamma,N}$ from \cite{Heck2012CORSIKA} has been used}.
+    \caption{Photonuclear interaction cross sections implemented in PROPOSAL. For the Heck parametrization, the solid line indicates the shadowing parametrization according to \cite{KOEHNE20132070}, while for the dashed line, the shadowing parametrization $\sigma_{\gamma,A} = A^{0.91} \sigma_{\gamma,N}$ from \cite{Heck2012CORSIKA} has been used.}
     \label{fig:photoproduction_cross}
 \end{figure}
 %
@@ -90,7 +89,7 @@ For energies where the LPM suppression of pair production becomes effective, the
 \subsection{Muon pair production}
 
 Muon pair production describes the conversion of a photon to a muon pair in the field of an atomic nucleus.
-While its contribution to the mean free path length of photons is negligible compared to the dominant electron positron pair production, the process provides a source of muons from the electromagnetic shower component and therefore a potentially interesting event signature in extensive air showers.
+While the contribution of this process to the mean free path length of photons is negligible compared to the dominant electron-positron pair production, it provides a source of muons from the electromagnetic shower component and therefore a potentially interesting event signature in extensive air showers.
 
 Based on the muon bremsstrahlung cross section given in \cite{Kelner:288828}, the muon pair production cross section is given by
 %
@@ -106,7 +105,7 @@ where
 	\Phi(\delta) &= \underbrace{\ln \left( \frac{B Z^{\sfrac{-1}{3}} m_\mu / m_e}{1 + B Z^{\sfrac{-1}{3}} \sqrt{e} \delta / m_e } \right)}_{\Phi_0} - \underbrace{\ln\left( \frac{D_n}{1 + \delta (D_n \sqrt{e} - 2) / m_\mu} \right)}_{\Delta_\text{n}},
 \end{align}
 %
-with the radiation logarithm constant $B$ and the definitions
+with the radiation logarithm constant $B$, the inelastic radiation logarithm $B^\prime$, and the definitions
 %
 \begin{align}
 	x &= \frac{E_{\mu^-}}{E}, & \delta &= \frac{m_\mu^2}{2 E x (1 - x)}, & D_n &= 1.54 A^{0.27}.
@@ -122,7 +121,7 @@ The total cross section of muon pair production is shown in Figure \ref{fig:tota
 
 \subsection{Landau-Pomeranchuk-Migdal effect in electron-positron pair production}
 
-The Landau-Pomeranchuk-Migdal is a suppression of bremsstrahlung and pair production processes occuring when the formation length reaches interatomic distances, which comes in effect for high energies and dense media.
+The Landau-Pomeranchuk-Migdal effect is a suppression of bremsstrahlung and pair production processes occuring when the formation length reaches interatomic distances, which comes in effect for high energies and dense media.
 The suppression is effective for small energy losses in case of bremsstrahlung, and for symmetric pair production events in case of electron-positron pair production.
 
 Based on the parametrization of the LPM effect in \cite{RevModPhys.71.1501}, the suppression of the pair production cross section is given by
@@ -173,7 +172,7 @@ with the variable definitions
 %
 where $X_0$ is the radiation length and $B$ the radiation logarithm constant.
 
-Figure \ref{fig:lpm_photopair_diff} shows the effect of the LPM on the differential pair production cross section at different energies.
+Figure \ref{fig:lpm_photopair_diff} shows the effect of the LPM suppression on the differential pair production cross section at different energies.
 As expected, for $x = 0.5$, the suppression becomes maximal, while for $x=0$ and $x=1$, the suppression is zero.
 Since the LPM effect depends on the material density, its suppression also depends on the height in the Earth's atmosphere.
 In Figure \ref{fig:lpm_photopair_cross}, the suppression of the pair production cross section at different atmospheric heights is shown.
@@ -183,7 +182,7 @@ In Figure \ref{fig:lpm_photopair_cross}, the suppression of the pair production 
 \begin{minipage}[t]{.48\textwidth}
   \centering
   \includegraphics{plots/lpm_photopair_differential_small.pdf}
-  \captionof{figure}{Differential cross section for electron-positron pair production in air at standard density, with nitrogen as an interaction target. The effect of the LPM effect at different energies is shown. Note that without the LPM suppression, the differential cross section is identical for all energies in this plot.}
+  \captionof{figure}{Differential cross section for electron-positron pair production in air at standard density, with nitrogen as an interaction target. The effect of the LPM effect at different energies is shown. Note that without the LPM suppression, the differential cross section is almost identical for all energies in this plot.}
   \label{fig:lpm_photopair_diff}
 \end{minipage}%
 \hfill
