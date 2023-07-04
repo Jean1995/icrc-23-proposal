@@ -1,13 +1,13 @@
 \section{Introduction}
 
 Modern experiments in physics rely on methods of statistical data analysis to interpret their measurements.
-To train these methods, a statistical sufficient dataset where the true properties are known is required.
+To train these methods, a statistically sufficient dataset where the true properties are known is required.
 Especially in astroparticle physics, this can only be achieved using simulations which model the reality.
 One of these simulation tools is the framework PROPOSAL, which provides a three-dimensional Monte Carlo simulation of high-energy particles propagating through large volumes\footnote{PROPOSAL is available as an open-source C\texttt{++}/Python software under \url{https://github.com/tudo-astroparticlephysics/PROPOSAL}. It can be installed with \texttt{pip install proposal} or via CMake.}.
 Originally, PROPOSAL has been written for the simulation of muon and tau leptons in the context of underground observatories, such as the IceCube Neutrino Observatory \cite{IceCube:2021uhz}, or for radio neutrino detectors \cite{PhysRevD.102.083011}.
-In a recent update, the simulation of electrons, positrons, and photons has been included as well, which allows PROPOSAL to be used to simulate the electromagnetic component of extensive air showers, as it is done in the air shower simulation framework CORSIKA~8 \cite{icrc2023}. 
-As a first step of this update, the most important processes for the simulation of electromagnetic cascades, namely pair production, annihilation, and Compton scattering, as well as dedicated parametrizations for ionization and bremsstrahlung losses have been implemented \cite{Alameddine:2021iq}.
+To be able to use PROPOSAL for the simulation of electromagnetic cascades, a recent update introduced pair production and Compton scattering as photon interactions, annihilation as a new positron interaction, and new dedicated parametrizations to describe ionization and bremsstrahlung losses of electrons and positrons \cite{Alameddine:2021iq}.
+With these updates, PROPOSAL could be used to simulate the electromagnetic component of extensive air showers, as it is done in the air shower simulation framework CORSIKA~8 \cite{icrc2023}. 
 
 In this contribution, the implementation of additional photon interaction processes is presented.
 This includes photoelectric absorption, photonuclear interactions, muon pair production, and a description of the Landau-Pomeranchuk-Migdal suppression in electron-positron pair production.
-These processes are important to describe photons as low energies ($E \lessapprox \SI{0.1}{\mega\electronvolt}$ in air) and very-high energies ($E \gtrapprox \SI{1e12}{\mega\electronvolt}$ in air), as well as due to their distinct event signatures.
+These processes are important to describe photons as low energies ($E \lessapprox \SI{0.1}{\mega\electronvolt}$ in air) and very-high energies ($E \gtrapprox \SI{1e18}{\electronvolt}$ in air), as well as due to their distinct event signatures.

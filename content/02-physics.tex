@@ -16,7 +16,7 @@ For photons in air, photoelectric absorption becomes the dominant interaction pr
 In the context of electromagnetic cascades, photoelectric absorption as a process starts to become important for energies where its cross section represents a significant correction to the total mean free path length.
 
 The detailed description of photoelectric absorption is non-trivial and dependent on the properties interaction target and its atomic structure.
-Since other codes to describe these processes already exist, PROPOSAL only provides an approximate description based on the cross section given in \cite{heitler, sauter}.
+Since the energy where photoelectric absorption becomes dominant is small, and the process is not important for the electromagnetic shower development, PROPOSAL only provides an approximate description based on the cross section given in \cite{heitler, sauter}.
 The total cross section is defined as
 %
 \begin{align}
@@ -175,7 +175,7 @@ with the variable definitions
 where $X_0$ is the radiation length and $B$ the radiation logarithm constant.
 
 Figure \ref{fig:lpm_photopair_diff} shows the effect of the LPM suppression on the differential pair production cross section at different energies.
-As expected, for $x = 0.5$, the suppression becomes maximal, while for $x=0$ and $x=1$, the suppression is zero.
+As expected, for $x = 0.5$, the suppression becomes maximal, while for $x \rightarrow 0$ and $x \rightarrow 1$, the suppression is zero.
 Since the LPM effect depends on the material density, its suppression also depends on the height in the Earth's atmosphere.
 In Figure \ref{fig:lpm_photopair_cross}, the suppression of the pair production cross section at different atmospheric heights is shown.
 %
@@ -184,7 +184,7 @@ In Figure \ref{fig:lpm_photopair_cross}, the suppression of the pair production 
 \begin{minipage}[t]{.48\textwidth}
   \centering
   \includegraphics{plots/lpm_photopair_differential_small.pdf}
-  \captionof{figure}{Differential cross section for electron-positron pair production in air at standard density, with nitrogen as an interaction target. The effect of the LPM effect at different energies is shown. Note that without the LPM suppression, the differential cross section is almost identical for all energies in this plot.}
+  \captionof{figure}{Differential cross section for electron-positron pair production in air at sea level, with nitrogen as an interaction target. The effect of the LPM effect at different energies is shown. Note that without the LPM suppression, the differential cross section is almost identical for all energies in this plot.}
   \label{fig:lpm_photopair_diff}
 \end{minipage}%
 \hfill
