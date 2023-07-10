@@ -101,10 +101,214 @@
 
 \begin{document}
 
+
+  \begin{columns}[onlytextwidth]%
+    \begin{column}{0.6\textwidth}%
+      \begin{block}[equal height group=A]{Introduction}%
+        \blindtext
+      \end{block}
+    \end{column}
+    \begin{column}{0.4\textwidth}%
+      \begin{block}[equal height group=A]{Installation}%
+                \blindtext
+
+      \end{block}
+    \end{column}
+    \end{columns}
+
+  \begin{columns}[onlytextwidth]%
+    \begin{column}{0.55\textwidth}%
+      \begin{block}[equal height group=F]{How to use PROPOSAL}%
+        \vspace{-0.75em}
+        \begin{columns}[onlytextwidth]
+        \begin{column}{0.48\textwidth}
+        \begin{mdframed}[backgroundcolor=light-gray, roundcorner=10pt,leftmargin=1, rightmargin=1, innerleftmargin=15, innertopmargin=15,innerbottommargin=15, outerlinewidth=1, linecolor=light-gray]
+
+          \lstinputlisting[
+          language=Python,
+          basicstyle=\footnotesize\ttfamily,
+          style=base,
+          escapechar=\$,
+          breaklines=true
+          ]{code/example.txt}
+          \end{mdframed} 
+
+          \end{column}
+          \begin{column}{0.07\textwidth}
+          \begin{center}
+            \vspace{7.5em}
+            \begin{tikzpicture}
+            \draw[
+              -triangle 90,
+               line width=4mm,
+                postaction={draw, line width=0.7cm, shorten >=1cm, -}
+            ] (0,0) -- (2,0);
+          \end{tikzpicture}
+          \end{center}          
+        \end{column}
+          \begin{column}{0.45\textwidth}
+            \begin{figure}
+              \includegraphics[width=\linewidth, height=.4\textheight, keepaspectratio]{images/example_output.pdf}
+            \end{figure}
+          \end{column}
+        \end{columns}
+
+      \end{block}%
+    \end{column}%
+    \end{columns}
+
+
+
+  \begin{columns}[onlytextwidth]%
+    \begin{column}{\textwidth}%
+      \begin{block}{Physics improvements for photon interactions}%
+        \begin{minipage}[t]{0.3\textwidth}
+          \begin{minipage}[t][12cm]{\textwidth}
+            {\Large\textbf{Photoelectric absorption:}}
+            \begin{columns}[onlytextwidth]
+                \begin{column}{0.6\textwidth}%
+                  \begin{itemize}[leftmargin=0.5cm]
+                    \item Dominant interaction type for photon energies below $\approx \SI{30}{\kilo\electronvolt}$
+                    \item Accurate description not necessary for development of EM cascade
+                    \begin{itemize}
+                      \item[$\rightarrow$] Implementation of on approximative description
+                    \end{itemize}
+                  \end{itemize}
+                \end{column}
+                \begin{column}{0.35\textwidth}%
+                  \begin{figure}
+                      \includegraphics[width=\linewidth, keepaspectratio]{images/photoeffect_sketch.png}
+                    \end{figure}
+                \end{column}
+            \end{columns}     
+            \begin{itemize}[itemindent=0.85cm,topsep=0.22cm,leftmargin=0.5cm]
+                      \item[$\rightarrow$] Agrees within \SI{10}{\percent} with NIST data
+            \end{itemize}     
+          \end{minipage}
+          \begin{minipage}[t][12cm]{\textwidth}
+            {\Large\textbf{Photonuclear interactions:}}
+            \begin{columns}[onlytextwidth]
+                \begin{column}{0.6\textwidth}%
+                  \begin{itemize}[leftmargin=0.5cm]
+                    \item Absorption of photon by nucleus
+                    \item Source of hadrons from EM cascades
+                    \item Uncertain extrapolation for high energies
+                    \begin{itemize}
+                      \item[$\rightarrow$] Different parametrizations available
+                    \end{itemize}
+                  \end{itemize}
+                \end{column}
+                \begin{column}{0.35\textwidth}%
+                  \begin{figure}
+                      \includegraphics[width=\linewidth, keepaspectratio]{images/photoproduction_sketch.png}
+                    \end{figure}
+                \end{column}
+            \end{columns}            
+          \end{minipage}
+        \end{minipage}
+        \begin{minipage}[t]{0.4\textwidth}
+          \begin{figure}
+            \vspace{2cm}
+            \includegraphics[width=0.9\linewidth, keepaspectratio]{../plots/Photon_Air_dndx_ecut_0.pdf}
+          \end{figure}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+          \begin{minipage}[t][12cm]{\textwidth}
+            {\Large\textbf{LPM effect:}}
+            \begin{columns}[onlytextwidth]
+                \begin{column}{0.6\textwidth}%
+                  \begin{itemize}[leftmargin=0.5cm]
+                    \item Suppression of small bremsstrahlung losses and symmetric pair production processes
+                    \item Relevant for high energies and/or dense media
+
+                  \end{itemize}
+
+
+                \end{column}
+                \begin{column}{0.35\textwidth}%
+                  \begin{figure}
+                      \includegraphics[width=\linewidth, keepaspectratio]{images/lpm_sketch.png}
+                    \end{figure}
+                \end{column}
+            \end{columns}
+          \end{minipage}
+          \begin{minipage}[t][12cm]{\textwidth}
+            {\Large\textbf{Muon pair production:}}
+            \begin{columns}[onlytextwidth]
+                \begin{column}{0.6\textwidth}%
+                  \begin{itemize}[leftmargin=0.5cm]
+                    \item Subdominant compared to $e^- e^+$ pair production
+                    \item Source of muons from EM cascades
+
+                  \end{itemize}
+                \end{column}
+                \begin{column}{0.35\textwidth}%
+                  \begin{figure}
+                      \includegraphics[width=\linewidth, keepaspectratio]{images/mupair_sketch.png}
+                    \end{figure}
+                \end{column}
+            \end{columns}
+          \end{minipage}
+        \end{minipage}
+
+      \end{block}
+    \end{column}
+    \end{columns}
+
   \begin{columns}[onlytextwidth]%
     \begin{column}{0.4\textwidth}%
-      \begin{block}[equal height group=Z]{Outlook}%
-        \blindtext
+      \begin{block}[equal height group=PLOTS]{Validation of low-energy $\gamma$ cross section}%
+        \begin{columns}[onlytextwidth]
+            \begin{column}{0.6\textwidth}%
+              \begin{figure}
+                  \includegraphics[width=\linewidth, keepaspectratio]{../plots/photoeffect_nist.pdf}
+                \end{figure}
+            \end{column}
+            \begin{column}{0.4\textwidth}%
+              \begin{itemize}[leftmargin=1.5cm]
+                \item Comparison to NIST data 
+              \end{itemize}
+            \end{column}            
+        \end{columns}
+      \end{block}
+    \end{column}
+    \begin{column}{0.6\textwidth}%
+      \begin{block}[equal height group=PLOTS]{Effect of LPM effect for air showers}%
+        \begin{columns}[onlytextwidth]
+            \begin{column}{0.65\textwidth}%
+              \begin{figure}
+              \begin{minipage}[t]{0.49\textwidth}
+                \includegraphics[width=\linewidth, keepaspectratio]{../plots/lpm_photopair_differential_small.pdf}
+              \end{minipage}%
+              \hfill
+              \begin{minipage}[t]{0.49\textwidth}
+                \includegraphics[width=\linewidth, keepaspectratio]{../plots/lpm_cross_photopair_small.pdf}
+              \end{minipage}
+              \end{figure}
+            \end{column}
+            \begin{column}{0.35\textwidth}%
+              \begin{itemize}[leftmargin=1.5cm]
+                \item Text here text here text here
+              \end{itemize}
+            \end{column}            
+        \end{columns}
+      \end{block}
+    \end{column}
+    \end{columns}
+
+
+
+
+  \begin{columns}[onlytextwidth]%
+    \begin{column}{0.4\textwidth}%
+      \begin{block}[equal height group=Z]{Summary and Outlook}%
+        \begin{itemize}
+          \item Full physics implementation of EM cascades
+          \begin{itemize}
+            \item[$\rightarrow$] Used in CORSIKA 8, see contribution by X and Y
+          \end{itemize}
+          \item Simulation of neutrino interactions
+        \end{itemize}
       \end{block}
     \end{column}
     \begin{column}{0.4\textwidth}%
