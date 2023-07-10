@@ -10,7 +10,7 @@ rc('font', **{'family': 'serif',
 rc('text', usetex=True)
 rc('text.latex', preamble="\n".join([r'\usepackage{calrsfs}', r"\usepackage[detect-all,locale=US]{siunitx}"]))
 
-plt.rcParams["figure.figsize"] = (6, 3.2)
+plt.rcParams["figure.figsize"] = (6, 2.9)
 
 # tableau-colorblind10 (https://viscid-hub.github.io/Viscid-docs/docs/dev/styles/tableau-colorblind10.html)
 #colorblind_colors = ["#006BA4", "#FF800E", "#ABABAB", "#595959", "#5F9ED1", "#C85200", "#898989", "#A2C8EC", "#FFBC79", "#CFCFCF"]
