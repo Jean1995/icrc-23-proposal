@@ -3,6 +3,7 @@ import numpy as np
 import proposal as pp
 
 import pandas as pd
+import scipy.constants as c
 
 from matplotlib import rc
 rc('font', **{'family': 'serif',
@@ -96,12 +97,25 @@ def plot_dEdx(energy_min=1e3, energy_max=1e12, n_energies=200, ecut=np.inf,
         np.log10(energy_max),
         n_energies)
 
+    ### conversion factor from mass attenuation coefficient to cross section
+    # mu/rho = sigma_tot / (u * A)
+    u = c.u * 1000 # unit: g
+    cm2_to_barn = 1e24
+
     if medium == 'Ice':
         medium_proposal = pp.medium.Ice()
+        A = 267.02047 # g/mol
     elif medium == 'Air':
         medium_proposal = pp.medium.Air()
+        A = 28.97 # g/mol
     else:
         raise AttributeError('medium must be medium or air (or you need to add it to the script)')
+
+    if modus == 'dndx':
+        conversion = u * A * cm2_to_barn
+    else:
+        conversion = 1
+
 
     loss_sum = np.zeros(len(energies))
 
@@ -127,7 +141,7 @@ def plot_dEdx(energy_min=1e3, energy_max=1e12, n_energies=200, ecut=np.inf,
         else:
             _linestyle = '-'
             loss_sum += dedx
-        ax.plot(energies, dedx, linestyle=_linestyle, label=_label, color=_color)
+        ax.plot(energies, dedx * conversion, linestyle=_linestyle, label=_label, color=_color)
 
     #if (modus == 'dndx' and particle=='Photon'):
     #    #plot nist tables
@@ -143,7 +157,7 @@ def plot_dEdx(energy_min=1e3, energy_max=1e12, n_energies=200, ecut=np.inf,
         ax.set_ylabel(r'$\left\langle -\frac{\mathrm{d}E}{\mathrm{d}X}\right\rangle \,\left/\, \left( \mathrm{MeV} \mathrm{g}^{-1} \mathrm{cm}^2 \right) \right. $')
     elif modus == 'dndx':
         output ='{particle}_{medium}_{modus}_ecut_{ecut:.4g}.pdf'
-        ax.set_ylabel(r'$\sigma  \,/\, \frac{\mathrm{cm}^2}{\mathrm{g}} $', fontsize=10)
+        ax.set_ylabel(r'$\sigma  \,/\, \mathrm{b} $', fontsize=10)
 
     output = output.format(**{'ecut':ecut, 'modus':modus, 'particle':particle, 'medium':medium})
     if bottom:

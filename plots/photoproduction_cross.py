@@ -11,6 +11,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 
+import scipy.constants as c
+
+### conversion factor from mass attenuation coefficient to cross section
+# mu/rho = sigma_tot / (u * A)
+u = c.u * 1000 # unit: g
+A = 28.97 # g/mol
+cm2_to_barn = 1e24
+conversion = u * A * cm2_to_barn
+
 from matplotlib import rc
 rc('font', **{'family': 'serif',
    'serif': ['Computer Modern']})
@@ -51,19 +60,19 @@ for param in param_list:
 energies = np.geomspace(1.5e2, 1e11, 500)
 
 for cross, label, color in zip(cross_list[:-1], labels, colors):
-	plt.plot(energies, cross.calculate_dNdx(energies), label=label, color=color, lw=1)
+	plt.plot(energies, cross.calculate_dNdx(energies)*conversion, label=label, color=color, lw=1)
 
 # with CORSIKA 7 shadowing
-plt.plot(energies, cross_list[-1].calculate_dNdx(energies), color=colors[-1], lw=1, linestyle='dashed')
+plt.plot(energies, cross_list[-1].calculate_dNdx(energies)*conversion, color=colors[-1], lw=1, linestyle='dashed')
 
 plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",
                 mode="expand", borderaxespad=0, ncol=3)
 plt.xscale('log')
 plt.yscale('log')
 plt.grid()
-plt.ylabel(r'$\sigma \,/\, \si{\centi\meter\squared\per\gram} $')
+plt.ylabel(r'$\sigma \,/\, \si{\barn} $')
 plt.xlabel(r'$E \,/\, \si{\mega\electronvolt}$')
-plt.ylim(3e-5, 3e-4)
+plt.ylim(3e-5*conversion, 3e-4*conversion)
 #plt.xlim(1.5e2, 1e11)
 
 

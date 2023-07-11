@@ -9,6 +9,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from matplotlib import rc
+
+import scipy.constants as c
+
+### conversion factor from mass attenuation coefficient to cross section
+# mu/rho = sigma_tot / (u * A)
+u = c.u * 1000 # unit: g
+A = 28.97 # g/mol
+cm2_to_barn = 1e24
+conversion = u * A * cm2_to_barn
+
 rc('font', **{'family': 'serif',
    'serif': ['Computer Modern']})
 rc('text', usetex=True)
@@ -50,13 +60,13 @@ def total_dNdx(E):
 energies = np.geomspace(min(air_nist['energy']), max(air_nist['energy']), 1000)
 
 for c, label, color in zip(cross, labels, colors):
-	ax1.plot(energies, c.calculate_dNdx(energies), label=label, color=color)
+	ax1.plot(energies, c.calculate_dNdx(energies) * conversion, label=label, color=color)
 
 
-ax1.plot(energies, total_dNdx(energies), label=r'$\sigma_\text{tot}$', color=colorblind_colors[3])
+ax1.plot(energies, total_dNdx(energies) * conversion, label=r'$\sigma_\text{tot}$', color=colorblind_colors[3])
 
 
-ax1.plot(air_nist['energy'], air_nist["mu"], 'x', label='NIST data', color='k', markersize=4)
+ax1.plot(air_nist['energy'], air_nist["mu"] * conversion, 'x', label='NIST data', color='k', markersize=4)
 ax2.plot(air_nist['energy'], air_nist["mu"] / total_dNdx(air_nist['energy']), 'x', label=r'NIST data / $\sigma_\text{tot}$', color='k', markersize=4)
 
 
@@ -76,7 +86,7 @@ ax2.legend(loc='best')
 ax1.set_xscale('log')
 ax1.set_yscale('log')
 ax1.grid()
-ax1.set_ylabel(r'$\sigma \,/\, \si{\centi\meter\squared\per\gram} $', fontsize=10)
+ax1.set_ylabel(r'$\sigma \,/\, \si{\barn} $', fontsize=10)
 
 ax2.grid()
 ax2.set_ylim(0.8, 1.2)
