@@ -110,52 +110,27 @@
     \end{column}
     \begin{column}{0.4\textwidth}%
       \begin{block}[equal height group=A]{Installation}%
-                \blindtext
-
+        \begin{columns}[onlytextwidth]
+          \begin{column}{0.7\textwidth}%
+            \textbf{PROPOSAL is a C\texttt{++}14 library with python bindings}
+            \begin{itemize}
+              \setlength\itemsep{\itemseparation}
+              \item[$\rightarrow$] Simplest Python installation with \colorbox{tuYellow}{\texttt{pip install proposal}}
+              \item[$\rightarrow$] C\texttt{++} installation via CMake, or with the package manager Conan
+            \end{itemize}
+          \end{column}
+          \begin{column}{0.3\textwidth}%
+            \vspace{-1.3cm}
+            \begin{figure}
+              \includegraphics[width=0.75\linewidth, keepaspectratio]{images/cpp-python.png}
+            \end{figure}
+          \end{column}
+        \end{columns}
       \end{block}
     \end{column}
     \end{columns}
 
-  \begin{columns}[onlytextwidth]%
-    \begin{column}{0.55\textwidth}%
-      \begin{block}[equal height group=F]{How to use PROPOSAL}%
-        \vspace{-0.75em}
-        \begin{columns}[onlytextwidth]
-        \begin{column}{0.48\textwidth}
-        \begin{mdframed}[backgroundcolor=light-gray, roundcorner=10pt,leftmargin=1, rightmargin=1, innerleftmargin=15, innertopmargin=15,innerbottommargin=15, outerlinewidth=1, linecolor=light-gray]
 
-          \lstinputlisting[
-          language=Python,
-          basicstyle=\footnotesize\ttfamily,
-          style=base,
-          escapechar=\$,
-          breaklines=true
-          ]{code/example.txt}
-          \end{mdframed} 
-
-          \end{column}
-          \begin{column}{0.07\textwidth}
-          \begin{center}
-            \vspace{7.5em}
-            \begin{tikzpicture}
-            \draw[
-              -triangle 90,
-               line width=4mm,
-                postaction={draw, line width=0.7cm, shorten >=1cm, -}
-            ] (0,0) -- (2,0);
-          \end{tikzpicture}
-          \end{center}          
-        \end{column}
-          \begin{column}{0.45\textwidth}
-            \begin{figure}
-              \includegraphics[width=\linewidth, height=.4\textheight, keepaspectratio]{images/example_output.pdf}
-            \end{figure}
-          \end{column}
-        \end{columns}
-
-      \end{block}%
-    \end{column}%
-    \end{columns}
 
 
 
@@ -163,7 +138,7 @@
     \begin{column}{\textwidth}%
       \begin{block}{Physics improvements for photon interactions}%
         \begin{minipage}[t]{0.3\textwidth}
-          \begin{minipage}[t][12cm]{\textwidth}
+          \begin{minipage}[t][11cm]{\textwidth}
             {\Large\textbf{Photoelectric absorption:}}
             \begin{columns}[onlytextwidth]
                 \begin{column}{0.6\textwidth}%
@@ -185,7 +160,7 @@
                       \item[$\rightarrow$] Agrees within \SI{10}{\percent} with NIST data
             \end{itemize}     
           \end{minipage}
-          \begin{minipage}[t][12cm]{\textwidth}
+          \begin{minipage}[t][10cm]{\textwidth}
             {\Large\textbf{Photonuclear interactions:}}
             \begin{columns}[onlytextwidth]
                 \begin{column}{0.6\textwidth}%
@@ -208,14 +183,19 @@
         \end{minipage}
         \begin{minipage}[t]{0.4\textwidth}
           \begin{figure}
-            \vspace{2cm}
+            \vspace{1cm}
             \includegraphics[width=0.9\linewidth, keepaspectratio]{../plots/Photon_Air_dndx_ecut_0.pdf}
           \end{figure}
         \end{minipage}
         \begin{minipage}[t]{0.3\textwidth}
-          \begin{minipage}[t][12cm]{\textwidth}
+          \begin{minipage}[t][11cm]{\textwidth}
             {\Large\textbf{LPM effect:}}
             \begin{columns}[onlytextwidth]
+                \begin{column}{0.35\textwidth}%
+                  \begin{figure}
+                      \includegraphics[width=\linewidth, keepaspectratio]{images/lpm_sketch.png}
+                    \end{figure}
+                \end{column}            
                 \begin{column}{0.6\textwidth}%
                   \begin{itemize}[leftmargin=0.5cm]
                     \item Suppression of small bremsstrahlung losses and symmetric pair production processes
@@ -225,27 +205,22 @@
 
 
                 \end{column}
-                \begin{column}{0.35\textwidth}%
-                  \begin{figure}
-                      \includegraphics[width=\linewidth, keepaspectratio]{images/lpm_sketch.png}
-                    \end{figure}
-                \end{column}
             \end{columns}
           \end{minipage}
-          \begin{minipage}[t][12cm]{\textwidth}
+          \begin{minipage}[t][10cm]{\textwidth}
             {\Large\textbf{Muon pair production:}}
             \begin{columns}[onlytextwidth]
+                \begin{column}{0.35\textwidth}%
+                  \begin{figure}
+                      \includegraphics[width=\linewidth, keepaspectratio]{images/mupair_sketch.png}
+                    \end{figure}
+                \end{column}            
                 \begin{column}{0.6\textwidth}%
                   \begin{itemize}[leftmargin=0.5cm]
                     \item Subdominant compared to $e^- e^+$ pair production
                     \item Source of muons from EM cascades
 
                   \end{itemize}
-                \end{column}
-                \begin{column}{0.35\textwidth}%
-                  \begin{figure}
-                      \includegraphics[width=\linewidth, keepaspectratio]{images/mupair_sketch.png}
-                    \end{figure}
                 \end{column}
             \end{columns}
           \end{minipage}
@@ -255,59 +230,125 @@
     \end{column}
     \end{columns}
 
+
   \begin{columns}[onlytextwidth]%
-    \begin{column}{0.4\textwidth}%
-      \begin{block}[equal height group=PLOTS]{Validation of low-energy $\gamma$ cross section}%
-        \begin{columns}[onlytextwidth]
-            \begin{column}{0.6\textwidth}%
-              \begin{figure}
-                  \includegraphics[width=\linewidth, keepaspectratio]{../plots/photoeffect_nist.pdf}
-                \end{figure}
-            \end{column}
-            \begin{column}{0.4\textwidth}%
-              \begin{itemize}[leftmargin=1.5cm]
-                \item Comparison to NIST data 
-              \end{itemize}
-            \end{column}            
-        \end{columns}
+    \begin{column}{0.55\textwidth}%
+      \begin{block}[equal height group=PLOTS]{Validation of low-energy photon cross sections}%
+
+      \textbf{Comparison of PROPOSAL implementation to calculations from NIST Standard Reference Database}
+
+      \vspace{0.5cm}
+
+      \begin{tikzpicture}
+        \centering
+        \node [anchor=west, align=left] (noteA) at (-7.5,4) {Expected discrepancies \\around absorption lines\\ (here: K-line of \textup{Ar})};
+        \node [anchor=west, align=left] (noteB) at (-7.5, 12) {Agreement better than \\\SI{10}{\percent} even at low \\energies where used \\parametrization is not \\expected to be exact };        
+        \node [anchor=west, align=left] (noteC) at (+27, 8) {Good agreement \\for energies where\\ pair production and\\ Compton are \\dominant processes};        
+
+
+        \begin{scope}[xshift=1.5cm]
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.6\textwidth]{../plots/photoeffect_nist.pdf}};
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]
+              \draw[tugreen,line width=4pt,rounded corners] (0.24,0.17) rectangle ++(0.041,0.15); % point to resonances
+              \draw [-latex, line width=4pt, tugreen] (noteA) to[out=-45, in=-90] (0.2605,0.165);
+
+              \draw[tugreen,line width=4pt,rounded corners] (0.15,0.70) rectangle ++(0.21,0.14); % point to very-low energy regime
+              \draw [-latex, line width=4pt, tugreen] (noteB) to[out=45, in=180] (0.145,0.77);
+
+              \draw[tugreen,line width=4pt,rounded corners] (0.70,0.6) rectangle ++(0.25,0.07); % point to high-energy regime
+              \draw [-latex, line width=4pt, tugreen] (noteC) to[out=90, in=45] (0.95,0.67);
+
+          \end{scope}
+        \end{scope}
+      \end{tikzpicture}%
+
+              %\begin{figure}
+              %    \includegraphics[width=0.7\linewidth, keepaspectratio]{../plots/photoeffect_nist.pdf}
+              %  \end{figure}
       \end{block}
     \end{column}
-    \begin{column}{0.6\textwidth}%
+    \begin{column}{0.45\textwidth}%
       \begin{block}[equal height group=PLOTS]{Effect of LPM effect for air showers}%
-        \begin{columns}[onlytextwidth]
-            \begin{column}{0.65\textwidth}%
+
+      \textbf{Influence of the LPM effect on pair production processes in air}
+
+      \vspace{0.0cm}
+
               \begin{figure}
               \begin{minipage}[t]{0.49\textwidth}
                 \includegraphics[width=\linewidth, keepaspectratio]{../plots/lpm_photopair_differential_small.pdf}
+                \vspace{-1.5cm}
+                \begin{itemize}
+                  \item For air at sea level, suppression of symmetric pair production processes becomes visible at energies above \SI{e2}{\peta\electronvolt}
+
+                \end{itemize}
               \end{minipage}%
               \hfill
               \begin{minipage}[t]{0.49\textwidth}
                 \includegraphics[width=\linewidth, keepaspectratio]{../plots/lpm_cross_photopair_small.pdf}
+                  \vspace{-1.5cm}
+                  \begin{itemize}
+                      \item LPM suppression is density dependent, and therefore dependent on height in atmosphere
+                  \end{itemize}
               \end{minipage}
               \end{figure}
-            \end{column}
-            \begin{column}{0.35\textwidth}%
-              \begin{itemize}[leftmargin=1.5cm]
-                \item Text here text here text here
-              \end{itemize}
-            \end{column}            
-        \end{columns}
       \end{block}
     \end{column}
     \end{columns}
 
 
 
+ % \begin{columns}[onlytextwidth]%
+ %   \begin{column}{0.55\textwidth}%
+ %     \begin{block}[equal height group=F]{How to use PROPOSAL}%
+ %       \vspace{-0.75em}
+ %       \begin{columns}[onlytextwidth]
+ %       \begin{column}{0.48\textwidth}
+ %       \begin{mdframed}[backgroundcolor=light-gray, roundcorner=10pt,leftmargin=1, rightmargin=1, innerleftmargin=15, innertopmargin=15,innerbottommargin=15, outerlinewidth=1, linecolor=light-gray]
+ %
+ %         \lstinputlisting[
+ %         language=Python,
+ %         basicstyle=\footnotesize\ttfamily,
+ %         style=base,
+ %         escapechar=\$,
+ %         breaklines=true
+ %         ]{code/example.txt}
+ %         \end{mdframed} 
+ %
+ %         \end{column}
+ %         \begin{column}{0.07\textwidth}
+ %         \begin{center}
+ %           \vspace{7.5em}
+ %           \begin{tikzpicture}
+ %           \draw[
+ %             -triangle 90,
+ %              line width=4mm,
+ %               postaction={draw, line width=0.7cm, shorten >=1cm, -}
+ %           ] (0,0) -- (2,0);
+ %         \end{tikzpicture}
+ %         \end{center}          
+ %       \end{column}
+ %         \begin{column}{0.45\textwidth}
+ %           \begin{figure}
+ %             \includegraphics[width=\linewidth, height=.4\textheight, keepaspectratio]{images/example_output.pdf}
+ %           \end{figure}
+ %         \end{column}
+ %       \end{columns}
+ %
+ %     \end{block}%
+ %   \end{column}%
+ %   \end{columns}
+
+
 
   \begin{columns}[onlytextwidth]%
     \begin{column}{0.4\textwidth}%
-      \begin{block}[equal height group=Z]{Summary and Outlook}%
+      \begin{block}[equal height group=Z]{Summary}%
         \begin{itemize}
           \item Full physics implementation of EM cascades
           \begin{itemize}
             \item[$\rightarrow$] Used in CORSIKA 8, see contribution by X and Y
           \end{itemize}
-          \item Simulation of neutrino interactions
         \end{itemize}
       \end{block}
     \end{column}
