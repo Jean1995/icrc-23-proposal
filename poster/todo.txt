@@ -1,0 +1,6 @@
+- replace sketches with tikz figures
+- introduction box
+- references
+- finish summary
+
+- add picture? 

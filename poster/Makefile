@@ -6,7 +6,7 @@ texoptions = -lualatex \
 
 all: build/poster.pdf
 
-build/poster.pdf: poster.tex beamerthemetudoposter.sty | build
+build/poster.pdf: poster.tex beamerthemetudoposter.sty code/example.txt | build
 	latexmk $(texoptions) poster.tex
 
 build:

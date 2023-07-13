@@ -241,9 +241,9 @@
 
       \begin{tikzpicture}
         \centering
-        \node [anchor=west, align=left] (noteA) at (-7.5,4) {Expected discrepancies \\around absorption lines\\ (here: K-line of \textup{Ar})};
-        \node [anchor=west, align=left] (noteB) at (-7.5, 12) {Agreement better than \\\SI{10}{\percent} even at low \\energies where used \\parametrization is not \\expected to be exact };        
-        \node [anchor=west, align=left] (noteC) at (+27, 8) {Good agreement \\for energies where\\ pair production and\\ Compton are \\dominant processes};        
+        \node [anchor=west, align=center] (noteA) at (-7.5,4) {Expected discrepancies \\around absorption lines\\ (here: K-line of \textup{Ar})};
+        \node [anchor=west, align=center] (noteB) at (-7.5, 12) {Agreement better than \\\SI{10}{\percent} even at low \\energies where used \\parametrization is not \\expected to be exact };        
+        \node [anchor=west, align=center] (noteC) at (+27, 8) {Good agreement \\for energies where\\ pair production and\\ Compton are \\dominant processes};        
 
 
         \begin{scope}[xshift=1.5cm]
@@ -298,46 +298,103 @@
 
 
 
- % \begin{columns}[onlytextwidth]%
- %   \begin{column}{0.55\textwidth}%
- %     \begin{block}[equal height group=F]{How to use PROPOSAL}%
- %       \vspace{-0.75em}
- %       \begin{columns}[onlytextwidth]
- %       \begin{column}{0.48\textwidth}
- %       \begin{mdframed}[backgroundcolor=light-gray, roundcorner=10pt,leftmargin=1, rightmargin=1, innerleftmargin=15, innertopmargin=15,innerbottommargin=15, outerlinewidth=1, linecolor=light-gray]
- %
- %         \lstinputlisting[
- %         language=Python,
- %         basicstyle=\footnotesize\ttfamily,
- %         style=base,
- %         escapechar=\$,
- %         breaklines=true
- %         ]{code/example.txt}
- %         \end{mdframed} 
- %
- %         \end{column}
- %         \begin{column}{0.07\textwidth}
- %         \begin{center}
- %           \vspace{7.5em}
- %           \begin{tikzpicture}
- %           \draw[
- %             -triangle 90,
- %              line width=4mm,
- %               postaction={draw, line width=0.7cm, shorten >=1cm, -}
- %           ] (0,0) -- (2,0);
- %         \end{tikzpicture}
- %         \end{center}          
- %       \end{column}
- %         \begin{column}{0.45\textwidth}
- %           \begin{figure}
- %             \includegraphics[width=\linewidth, height=.4\textheight, keepaspectratio]{images/example_output.pdf}
- %           \end{figure}
- %         \end{column}
- %       \end{columns}
- %
- %     \end{block}%
- %   \end{column}%
- %   \end{columns}
+  \begin{columns}[onlytextwidth]%
+    \begin{column}{0.55\textwidth}%
+      \begin{block}[equal height group=F]{How to use PROPOSAL}%
+        \vspace{-0.75em}
+        \begin{columns}[onlytextwidth]
+        \begin{column}{0.48\textwidth}
+
+        \begin{tikzpicture}
+          \centering
+          \node [anchor=west, align=center, font=\small] (noteA) at (14.5,13) { Information about environment \\in json configuration file};     
+
+          \begin{scope}[xshift=1.5cm]
+              \node[anchor=south west,inner sep=0] (image) at (0,0) {
+
+              \lstinputlisting[
+              language=Python,
+              basicstyle=\footnotesize\ttfamily,
+              style=base,
+              escapechar=\$,
+              breaklines=true
+              ]{code/example.txt}
+            };
+            \begin{scope}[on background layer]
+              \draw[draw=light-gray, fill=light-gray] ($(image.south east)+(0.4, -0.4)$) rectangle ($(image.north west)+(-0.4, 0)$);
+            \end{scope}
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]
+              %\draw[tugreen,line width=4pt,rounded corners] (0.24,0.17) rectangle ++(0.041,0.15); % point to resonances
+              \draw [-latex, line width=4pt, tugreen] (noteA) to[out=-125, in=60] (0.71, 0.75);
+
+              %\draw[tugreen,line width=4pt,rounded corners] (0.15,0.70) rectangle ++(0.21,0.14); % point to very-low energy regime
+              %\draw [-latex, line width=4pt, tugreen] (noteB) to[out=45, in=180] (0.145,0.77);
+
+              %\draw[tugreen,line width=4pt,rounded corners] (0.70,0.6) rectangle ++(0.25,0.07); % point to high-energy regime
+              %\draw [-latex, line width=4pt, tugreen] (noteC) to[out=90, in=45] (0.95,0.67);
+            \end{scope}
+          \end{scope}
+        \end{tikzpicture}%
+ 
+          \end{column}
+          \begin{column}{0.07\textwidth}
+          \begin{center}
+            \vspace{7.5em}
+            \begin{tikzpicture}
+            \draw[
+              -triangle 90,
+               line width=4mm,
+                postaction={draw, line width=0.7cm, shorten >=1cm, -}
+            ] (0,0) -- (2,0);
+          \end{tikzpicture}
+          \end{center}          
+        \end{column}
+          \begin{column}{0.45\textwidth}
+            \vspace{-1.0cm}
+            \begin{figure}
+              \includegraphics[width=\linewidth, height=.4\textheight, keepaspectratio]{code/example_output.pdf}
+            \end{figure}
+          \end{column}
+        \end{columns}
+ 
+      \end{block}%
+    \end{column}%
+    \begin{column}{0.45\textwidth}%
+      \begin{block}[equal height group=F, left=-5mm, right=-5mm, lefttitle=4mm, top=-5mm, bottom=-5mm]{Application: CORSIKA 8}%
+        \begin{tikzpicture}[path image/.style={path picture={
+                   \node at ($(path picture bounding box.center)+(0.5,0)$) {
+                            \includegraphics[scale=0.75, rotate=-63]{#1}};}
+                   }]
+        \centering
+        \node [anchor=west, align=center] (noteA) at (2.5,12.3) {PROPOSAL is used to simulate the \\electromagnetic and muonic shower \\component in the new particle-shower\\ simulation code CORSIKA~8};
+        \node [anchor=west, align=center] (noteA) at (14.1,2.5) {$\rightarrow$ For more details, see talks by A.~Sandrock [CRI19-06]\\ and T.~Huege [CRI20-08] on Wednesday};
+        %\node [anchor=west, align=center] (noteB) at (-7.5, 12) {Agreement better than \\\SI{10}{\percent} even at low \\energies where used \\parametrization is not \\expected to be exact };        
+        %\node [anchor=west, align=center] (noteC) at (+27, 8) {Good agreement \\for energies where\\ pair production and\\ Compton are \\dominant processes};        
+        \begin{scope}[on background layer]
+              \path [path image=images/shower_raw_2_draft.jpeg, opacity=0.8] (0,0) rectangle (\linewidth, 16.2cm);
+        \end{scope}
+
+              
+
+
+        \begin{scope}
+          % REPLACE WITH REAL png
+          %\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.6\textwidth, rotate=-45]{images/shower_raw_2_draft.jpeg}};
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]
+              %\draw[tugreen,line width=4pt,rounded corners] (0.24,0.17) rectangle ++(0.041,0.15); % point to resonances
+              %\draw [-latex, line width=4pt, tugreen] (noteA) to[out=-45, in=-90] (0.2605,0.165);
+
+              %\draw[tugreen,line width=4pt,rounded corners] (0.15,0.70) rectangle ++(0.21,0.14); % point to very-low energy regime
+              %\draw [-latex, line width=4pt, tugreen] (noteB) to[out=45, in=180] (0.145,0.77);
+
+              %\draw[tugreen,line width=4pt,rounded corners] (0.70,0.6) rectangle ++(0.25,0.07); % point to high-energy regime
+              %\draw [-latex, line width=4pt, tugreen] (noteC) to[out=90, in=45] (0.95,0.67);
+          \end{scope}
+        \end{scope}
+        \end{tikzpicture}%
+      \end{block}%
+    \end{column}%    
+    \end{columns}
 
 
 
