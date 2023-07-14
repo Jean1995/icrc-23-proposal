@@ -46,7 +46,7 @@ for rho, height, color in zip(rho_list, height_list, colorblind_colors):
     cross_photopair_lpm = pp.crosssection.make_crosssection(param_photopair_lpm, photon, medium, cuts, False)
     plt.plot(energies/conversion_energy, energies * cross_photopair_lpm.calculate_dNdx(energies), color=color, label=f'$h=\\SI{{{height}}}{{\\kilo\\meter}}$')
 
-plt.plot(energies/conversion_energy, energies * cross_photopair_no_lpm.calculate_dNdx(energies), color=colorblind_colors[-1], label=r'No LPM')
+plt.plot(energies/conversion_energy, energies * cross_photopair_no_lpm.calculate_dNdx(energies), color=colorblind_colors[-1], label=r'No LPM', linestyle='dashed')
 
 plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",
                 mode="expand", borderaxespad=0, ncol=2, fontsize=8)

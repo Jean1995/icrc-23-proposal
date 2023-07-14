@@ -47,7 +47,7 @@ stdcross = pp.crosssection.make_std_crosssection(particle, medium, None, False)
 
 fig, (ax1, ax2) = plt.subplots(nrows=2, sharex=True, gridspec_kw={'height_ratios': [2, 1], 'hspace': 0.1})
 
-labels = ['Photoeffect', 'Compton', 'Photopair']
+labels = ['Photoelectric absorption', 'Compton', r'$e^+ e^-$ pair production']
 cross = [stdcross[3], stdcross[1], stdcross[0] ]
 colors = [colorblind_colors[0], colorblind_colors[1], colorblind_colors[2]]
 
@@ -63,7 +63,7 @@ for c, label, color in zip(cross, labels, colors):
 	ax1.plot(energies, c.calculate_dNdx(energies) * conversion, label=label, color=color)
 
 
-ax1.plot(energies, total_dNdx(energies) * conversion, label=r'$\sigma_\text{tot}$', color=colorblind_colors[3])
+ax1.plot(energies, total_dNdx(energies) * conversion, label=r'$\sigma_\text{tot}$', color=colorblind_colors[5])
 
 
 ax1.plot(air_nist['energy'], air_nist["mu"] * conversion, 'x', label='NIST data', color='k', markersize=4)
@@ -76,8 +76,8 @@ ax2.plot(air_nist['energy'], air_nist["mu"] / total_dNdx(air_nist['energy']), 'x
 
 handles,labels = ax1.get_legend_handles_labels()
 
-#handles = [handles[0], handles[4], handles[1], handles[3], handles[2]]
-#labels = [labels[0], labels[4], labels[1], labels[3], labels[2]]
+handles = [handles[0], handles[2], handles[1], handles[3], handles[4]]
+labels = [labels[0], labels[2], labels[1], labels[3], labels[4]]
 
 ax1.legend(handles, labels, bbox_to_anchor=(0, 1.01, 1, 0.2), loc="lower left",
                 mode="expand", borderaxespad=0, ncol=3, fontsize=10)
