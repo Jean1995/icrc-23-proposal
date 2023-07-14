@@ -1,7 +1,9 @@
-- replace sketches with tikz figures
 - introduction box
 - references
 - finish summary
 - haromnize legends of cross section figures
+- beautify tikz figures
+- look at all texts
 
 - add picture? 
+- replace air shower with "real" (uncompressed) air shower

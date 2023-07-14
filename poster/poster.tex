@@ -106,13 +106,63 @@
   %\includegraphics[width=1.0\linewidth, left]{dfg_logo_englisch_blau_en.jpg}
 }
 
+%% underline 
+
+\newcommand{\udot}[2]{%
+    \tikz[baseline=(#2.base)]{
+        \node[inner sep=1pt,outer sep=0pt] (#2) {#1};
+        \draw[line width=0.2cm, tugreen] ($(#2.south west) - (0, 0.1)$) -- ($(#2.south east) - (0, 0.1)$);
+    }%
+}%
+
 \begin{document}
 
 
   \begin{columns}[onlytextwidth]%
     \begin{column}{0.6\textwidth}%
       \begin{block}[equal height group=A]{Introduction}%
-        \blindtext
+      \hspace{0.5cm}
+      \begin{tikzpicture}
+        \newfontfamily{\Chalkduster}{Chalkduster}
+        \node [anchor=west, align=center, font=\Large] (title) at (0,0) {\udot{{\huge\textbf{PR}}opagator}{udot1} with \udot{{\huge\textbf{O}}ptimal {\huge\textbf{P}}recision and {\huge\textbf{O}}ptimized {\huge\textbf{S}}peed}{udot2} for \udot{{\huge\textbf{A}}ll {\huge\textbf{L}}eptons}{udot3}};        
+
+        \node[text=red, rotate=10, font=\large, opacity=1.0] (A) at (41,-1.25) {\Chalkduster and photons};
+
+        \node [anchor=west, align=center] (noteA) at (1, -3.4) {3D Monte Carlo simulation of \\individual particles};
+
+        \node [anchor=west, align=center] (noteB) at (15, -3.4) {Optimized for large-scale \\particle propagation};
+
+        \node [anchor=west, align=center] (noteC) at (27, -3.4) {Simulations of high-energy electrons, \\positrons, muons, taus, and photons};
+
+        \draw[-latex, line width=4pt, tugreen] (4, -0.8) -- ($(noteA.north) - (0.5, 0)$);
+
+        \draw[-latex, line width=4pt, tugreen] (21, -0.8) -- ($(noteB.north) - (0, 0)$);
+
+        \draw[-latex, line width=4pt, tugreen] (37, -0.8) -- ($(noteC.north) - (0, 0)$);
+
+
+        %\draw [-latex, line width=4pt, tugreen] (udot1.south) to[out=-45, in=125] (noteA.north);
+
+        %\draw [-latex, line width=4pt, tugreen] (udot2.south) to[out=-45, in=125] (noteB.north);
+
+        %\draw [-latex, line width=4pt, tugreen] (udot3) to[out=-45, in=125] (noteC.north);
+
+
+
+        %\begin{scope}[xshift=1.5cm]
+        %  \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.6\textwidth]{../plots/photoeffect_nist.pdf}};
+        %  \begin{scope}[x={(image.south east)},y={(image.north west)}]
+        %      \draw[tugreen,line width=4pt,rounded corners] (0.24,0.17) rectangle ++(0.041,0.15); % point to resonances
+        %      \draw [-latex, line width=4pt, tugreen] (noteA) to[out=-45, in=-90] (0.2605,0.165);
+        %      \draw[tugreen,line width=4pt,rounded corners] (0.15,0.70) rectangle ++(0.21,0.14); % point to very-low energy regime
+        %      \draw [-latex, line width=4pt, tugreen] (noteB) to[out=45, in=180] (0.145,0.77);
+        %      \draw[tugreen,line width=4pt,rounded corners] (0.70,0.6) rectangle ++(0.25,0.07); % point to high-energy regime
+        %      \draw [-latex, line width=4pt, tugreen] (noteC) to[out=90, in=45] (0.95,0.67);
+        %  \end{scope}
+        %\end{scope}
+      \end{tikzpicture}%
+
+
       \end{block}
     \end{column}
     \begin{column}{0.4\textwidth}%
