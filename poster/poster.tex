@@ -132,7 +132,7 @@
 
         \node [anchor=west, align=center] (noteB) at (15, -3.4) {Optimized for large-scale \\particle propagation};
 
-        \node [anchor=west, align=center] (noteC) at (27, -3.4) {Simulations of high-energy electrons, \\positrons, muons, taus, and photons};
+        \node [anchor=west, align=center] (noteC) at (27, -3.4) {Simulations of high-energy electrons, \\positrons, photons, muons, and taus};
 
         \draw[-latex, line width=4pt, tugreen] (4, -0.8) -- ($(noteA.north) - (0.5, 0)$);
 
@@ -172,7 +172,7 @@
             \textbf{PROPOSAL is a C\texttt{++}14 library with Python bindings}
             \begin{itemize}
               \setlength\itemsep{\itemseparation}
-              \item[$\rightarrow$] Simplest Python installation with \colorbox{tuYellow}{\texttt{pip install proposal}}
+              \item[$\rightarrow$] Simple Python installation with \colorbox{tuYellow}{\texttt{pip install proposal}}
               \item[$\rightarrow$] C\texttt{++} installation via CMake, or with the package manager Conan
             \end{itemize}
           \end{column}
@@ -389,7 +389,7 @@
       \end{block}
     \end{column}
     \begin{column}{0.45\textwidth}%
-      \begin{block}[equal height group=PLOTS]{Effect of LPM effect for air showers}%
+      \begin{block}[equal height group=PLOTS]{Impact of LPM effect on air showers}%
 
       \textbf{Influence of the LPM effect on pair production processes in air}
 
@@ -400,7 +400,7 @@
                 \includegraphics[width=\linewidth, keepaspectratio]{../plots/lpm_photopair_differential_small.pdf}
                 \vspace{-1.5cm}
                 \begin{itemize}
-                  \item For air at sea level, suppression of symmetric pair production processes becomes visible at energies above \SI{e2}{\peta\electronvolt}
+                  \item For air at sea level, suppression of symmetric pair production processes at energies above \SI{e2}{\peta\electronvolt}
 
                 \end{itemize}
               \end{minipage}%
@@ -523,7 +523,7 @@
     \begin{column}{0.4\textwidth}%
       \begin{block}[equal height group=Z]{Summary}%
         \begin{itemize}
-          \item Implementation of new photon processes relevant and low and high energies
+          \item Implementation of new photon processes relevant at low and high energies
           \begin{itemize}
             \item[$\rightarrow$] Complete description of electrons, positrons, and photons in the regime relevant for electromagnetic cascades
           \end{itemize}
