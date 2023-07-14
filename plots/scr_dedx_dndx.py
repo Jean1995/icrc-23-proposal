@@ -130,7 +130,7 @@ def plot_dEdx(energy_min=1e3, energy_max=1e12, n_energies=200, ecut=np.inf,
             r'$\mu^+ \mu^-$ pair production',
         ]
         colors = [colorblind_colors[0], colorblind_colors[1], colorblind_colors[2], colorblind_colors[2],
-         colorblind_colors[3], colorblind_colors[4]]
+         colorblind_colors[4], colorblind_colors[3]]
 
     else:
         print("Not implemented...")

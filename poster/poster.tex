@@ -218,14 +218,14 @@
                       \draw[->, line width=0.05cm] (3.55, 1.35) -- node[above] {} (5.75, 3.6);
 
 
-                      \node[circle,draw=tugreen, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (0.85,0.9){\footnotesize$e^-$};
-                      \node[circle,draw=tugreen, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (2.05,0.9){\footnotesize$e^-$};
+                      \node[circle,draw=darkgray, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (0.85,0.9){\footnotesize$e^-$};
+                      \node[circle,draw=darkgray, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (2.05,0.9){\footnotesize$e^-$};
 
-                      \node[circle,draw=tugreen, fill opacity=0.5, draw opacity=0.5, line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (3.25,0.9){\footnotesize$e^-$};                      
-                      \node[circle,draw=tugreen, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (4.45,0.9){\footnotesize$e^-$}; 
-                      \node[circle,draw=tugreen, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (5.65,0.9){\footnotesize$e^-$}; 
+                      \node[circle,draw=darkgray, fill opacity=0.5, draw opacity=0.5, line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (3.25,0.9){\footnotesize$e^-$};                      
+                      \node[circle,draw=darkgray, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (4.45,0.9){\footnotesize$e^-$}; 
+                      \node[circle,draw=darkgray, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (5.65,0.9){\footnotesize$e^-$}; 
 
-                      \node[circle,draw=tugreen, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (6.2,4.1){\footnotesize$e^-$};
+                      \node[circle,draw=darkgray, fill opacity=1.0,line width=0.05cm,inner sep=0mm, minimum size=0.85cm] (c) at (6.2,4.1){\footnotesize$e^-$};
 
                     \end{tikzpicture}
                       %\includegraphics[width=\linewidth, keepaspectratio]{images/photoeffect_sketch.png}
@@ -282,14 +282,14 @@
              {\Large\textbf{Photonuclear interactions:}}
             \begin{columns}[onlytextwidth]
                 \begin{column}{0.35\textwidth}%
-                  \vspace{0.8cm}
+                  \vspace{1.0cm}
                   \begin{figure}
                     \begin{tikzpicture}[>=stealth', pos=.55, photon/.style={decorate,decoration={snake,post length=2mm}}]
 
                       \path (-2,-2) rectangle (2,2);
-                      \pgfmathdeclarerandomlist{color}{{seaborn3}{white}}
+                      \pgfmathdeclarerandomlist{color}{{seaborn4}{white}}
                       \pgfmathsetseed{2}
-                      \foreach \A/\R in {12/0.5,7/0.3,1/0}{
+                      \foreach \A/\R in {20/0.7,12/0.5,7/0.3,1/0}{
                             \pgfmathsetmacro{\S}{360/\A}
                                  \foreach \B in {0,\S,...,360}{
                                      \pgfmathrandomitem{\C}{color}
@@ -297,11 +297,11 @@
                                  }
                       }
 
-                      \draw[->,photon, line width=0.05cm] (-3.2,0) -- node[above] {$\gamma$} (-0.8, 0);
-                      \draw[->, line width=0.05cm] (1.0,0.4) -- node[above] {} (3.1, 0.9);
-                      \draw[->, line width=0.05cm] (1.0,0.1) -- node[above] {} (3.2, 0.3);
-                      \draw[->, line width=0.05cm] (1.0,-0.18) -- node[above] {} (3.15, -0.38);
-                      \node[text=black, align=center, font=\footnotesize] at (2.05,-0.9) {Hadrons};
+                      \draw[->,photon, line width=0.05cm] (-4.0,0) -- node[above] {$\gamma$} (-1.1, 0);
+                      \draw[->, line width=0.05cm] (1.2,0.3) -- node[above] {} (3.8, 0.8);
+                      \draw[->, line width=0.05cm] (1.2,0.) -- node[above] {} (3.9, 0.2);
+                      \draw[->, line width=0.05cm] (1.2,-0.38) -- node[above] {} (3.85, -0.58);
+                      \node[text=black, align=center, font=\footnotesize] at (2.4,-1.1) {Hadrons};
 
                       %\draw[->, line width=0.05cm] (3.2,0) -- node[text=seaborn4, above] {$\mu^-$} (7, 1.5);
                       %\draw[->, line width=0.05cm] (3.2,0) -- node[text=seaborn4, below] {$\mu^+$} (7, -1.5);
@@ -329,8 +329,8 @@
                   \begin{figure}
                     \begin{tikzpicture}[>=stealth', pos=.55, photon/.style={decorate,decoration={snake,post length=2mm}}]
                       \draw[->,photon, line width=0.05cm] (0,0) -- node[above] {$\gamma$} (3, 0);
-                      \draw[->, line width=0.05cm] (3.2,0) -- node[text=seaborn4, above] {$\mu^-$} (7, 1.5);
-                      \draw[->, line width=0.05cm] (3.2,0) -- node[text=seaborn4, below] {$\mu^+$} (7, -1.5);
+                      \draw[->, line width=0.05cm] (3.2,0) -- node[text=seaborn3, above] {$\mu^-$} (7, 1.5);
+                      \draw[->, line width=0.05cm] (3.2,0) -- node[text=seaborn3, below] {$\mu^+$} (7, -1.5);
 
                     \end{tikzpicture}
                       %\includegraphics[width=\linewidth, keepaspectratio]{images/mupair_sketch.png}
